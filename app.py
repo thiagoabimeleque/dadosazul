@@ -4,11 +4,8 @@ from google.oauth2 import service_account
 import pandas as pd
 import datetime
 
-
-# Carrega credenciais diretamente do arquivo
-credentials = service_account.Credentials.from_service_account_file(
-    "dadosazul-db.json"
-)
+# Carrega as credenciais diretamente do dicionário
+credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"])
 
 # Inicializa cliente BigQuery com credenciais
 client = bigquery.Client(credentials=credentials, project=credentials.project_id)
