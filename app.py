@@ -34,35 +34,35 @@ base_query = "SELECT AZUL.cpf, nome, mae, pai, nasc, sexo, municipioNasci FROM `
 params = {}
 
 if cpf:
-    base_query += " AND cpf = @cpf"
+    base_query += " AND AZUL.cpf = @cpf"
     params["cpf"] = cpf
 
 if nome:
-    base_query += " AND nome LIKE @nome"
+    base_query += " AND AZUL.nome LIKE @nome"
     nome = str('%'.join(nome.split())).upper()
     params["nome"] = f"%{nome}%"
 
 if mae:
-    base_query += " AND mae LIKE @mae"
+    base_query += " AND SUS.mae LIKE @mae"
     mae = str('%'.join(mae.split())).upper()
     params["mae"] = f"%{mae}%"
 
 if pai:
-    base_query += " AND pai LIKE @nome"
+    base_query += " AND SUS.pai LIKE @nome"
     pai = str('%'.join(pai.split())).upper()
     params["pai"] = f"%{pai}%"
 
 if data_nascimento:
-    base_query += " AND nasc = @data_nascimento"
+    base_query += " AND AZUL.nasc = @data_nascimento"
     params["data_nascimento"] = str(data_nascimento)
 
 if municipio:
-    base_query += " AND municipioNasci LIKE @municipio"
+    base_query += " AND SUS.municipioNasci LIKE @municipio"
     municipio = str('%'.join(municipio.split())).upper()
     params["municipio"] = f"%{municipio}%"
 
 if sexo:
-    base_query += " AND sexo = @sexo"
+    base_query += " AND AZUL.sexo = @sexo"
     params["sexo"] = sexo
 
 # Executa a consulta
