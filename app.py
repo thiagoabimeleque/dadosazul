@@ -48,7 +48,7 @@ if mae:
     params["mae"] = f"%{mae}%"
 
 if pai:
-    base_query += " AND SUS.pai LIKE @nome"
+    base_query += " AND SUS.pai LIKE @pai"
     pai = str('%'.join(pai.split())).upper()
     params["pai"] = f"%{pai}%"
 
